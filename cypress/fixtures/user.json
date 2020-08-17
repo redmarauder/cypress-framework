@@ -1,0 +1,12 @@
+{
+  "email": "providenci_lowe@putsbox.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "creditCard": {
+    "name": "John Doe",
+    "zipCode": "92606",
+    "cardNumber": "4111 1111 1111 1111",
+    "expirationDate": "12/22",
+    "securityCode": "999"
+  }
+}
