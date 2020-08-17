@@ -1,4 +1,3 @@
-
 class HomePage {
 
     fillEmailInput(email) {

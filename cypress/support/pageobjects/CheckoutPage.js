@@ -39,6 +39,5 @@ class CheckoutPage {
     fillSecurityCodeInput(value) {
         this.fillIframeInput('#card-security', value);
     }
-
 }
 export default CheckoutPage

@@ -7,6 +7,5 @@ class SummaryPage {
     clickConfirmButton() {
         cy.get('button[data-action="confirm#confirmAction"]').click();
     }
-
 }
 export default SummaryPage
