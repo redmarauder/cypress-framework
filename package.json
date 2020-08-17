@@ -1,0 +1,24 @@
+{
+  "name": "cypress-framework",
+  "version": "1.0.0",
+  "description": "Create suite of tests for Phorest Demo site using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "cypress:run:all": "./node_modules/.bin/cypress run",
+    "cypress:run:test": "./node_modules/.bin/cypress run --spec cypress/integration/examples/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redmarauder/cypress-framework.git"
+  },
+  "author": "Shane Reddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redmarauder/cypress-framework/issues"
+  },
+  "homepage": "https://github.com/redmarauder/cypress-framework#readme",
+  "devDependencies": {
+    "cypress": "^4.12.1"
+  }
+}
