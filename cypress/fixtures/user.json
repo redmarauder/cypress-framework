@@ -2,6 +2,8 @@
   "email": "providenci_lowe@putsbox.com",
   "firstName": "John",
   "lastName": "Doe",
+  "recipientEmail": "lisa@putsbox.com",
+  "message": "Happy birthday Lisa",
   "creditCard": {
     "name": "John Doe",
     "zipCode": "92606",

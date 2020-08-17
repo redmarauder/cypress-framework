@@ -5,8 +5,9 @@ class PurchaseCompletePage {
     }
 
     checkIfEmailWasDelivered() {
-        cy.get('.text-xl.font-bold', { timeout: 10000 }).invoke('text').then((giftCardNumber) => {
+        cy.get('.text-xl.font-bold', { timeout: 30000 }).invoke('text').then((giftCardNumber) => {
             this.clickDoneButton();
+            cy.wait(5000);
             cy.getLastEmailAsJson().then(json => {
                 cy.writeFile('email.txt', json, 'binary');
                 cy.readFile('email.txt').then((file) => {

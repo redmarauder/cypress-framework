@@ -1,5 +1,18 @@
 class HomePage {
 
+    selectSendToSomeoneElseTab() {
+        cy.get('a[data-target="tabs.sendToOtherTab"]').click();
+    }
+
+    selectGiftCardAmount(value) {
+        if (value == 200) {
+            cy.get('span[data-target="amount.otherOptionButton"]').click();
+            cy.get('input[data-target="amount.otherInput"]').type(value);
+        } else {
+            cy.get('span[data-value="' + value + '"]').click();
+        }
+    }
+
     fillEmailInput(email) {
         cy.get('input[data-target="email.purchaserEmailInput"]').type(email);
     }
@@ -12,8 +25,12 @@ class HomePage {
         cy.get('input[data-target="name.purchaserLastNameInput"]').type(lastName);
     }
 
-    selectGiftCardAmount(amount) {
-        cy.get('span[data-value="' + amount + '"]').click();
+    fillRecipientEmailInput(recipientEmail) {
+        cy.get('input[data-target="email.recipientEmailInput"]').type(recipientEmail);
+    }
+
+    fillMessageForRecipientInput(messageForRecipient) {
+        cy.get('textarea[data-target="email.recipientMessageInput"]').type(messageForRecipient);
     }
 
     clickCheckoutButton() {
