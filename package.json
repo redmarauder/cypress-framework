@@ -6,7 +6,7 @@
   "scripts": {
     "cypress:open": "./node_modules/.bin/cypress open",
     "cypress:run:all": "./node_modules/.bin/cypress run",
-    "cypress:run:test": "./node_modules/.bin/cypress run --spec cypress/integration/examples/"
+    "cypress:run:test": "./node_modules/.bin/cypress run --spec"
   },
   "repository": {
     "type": "git",
