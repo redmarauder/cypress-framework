@@ -7,7 +7,7 @@ import CheckoutPage from '../../support/pageobjects/CheckoutPage';
 
 describe('As a customer I want to edit the details of my order', function () {
 
-    before(function () {
+    beforeEach(function () {
         cy.fixture('user').then(function (data) {
             this.data = data;
         })
@@ -28,15 +28,15 @@ describe('As a customer I want to edit the details of my order', function () {
         homePage.fillLastNameInput(this.data.lastName);
         homePage.clickCheckoutButton();
 
-        summaryPage.checkInputValues(this.value.fifty, this.data.email);
+        summaryPage.checkOrderDetails(this.value.fifty, this.data.email);
         summaryPage.clickEditButton();
 
-        homePage.checkInputValues(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
+        homePage.checkOrderDetails(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
         homePage.clickCheckoutButton();
 
-        summaryPage.checkInputValues(this.value.fifty, this.data.email);
+        summaryPage.checkOrderDetails(this.value.fifty, this.data.email);
         summaryPage.clickConfirmDetailsButton();
-        summaryPage.checkInputValues(this.value.fifty, this.data.email);
+        summaryPage.checkOrderDetails(this.value.fifty, this.data.email);
     })
 
     it(`the order details should be correct after editing the details from the checkout page`, function () {
@@ -56,9 +56,9 @@ describe('As a customer I want to edit the details of my order', function () {
 
         checkoutPage.clickEditButton();
 
-        homePage.checkInputValues(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
+        homePage.checkOrderDetails(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
         homePage.clickCheckoutButton();
 
-        summaryPage.checkInputValues(this.value.fifty, this.data.email);
+        summaryPage.checkOrderDetails(this.value.fifty, this.data.email);
     })
 })

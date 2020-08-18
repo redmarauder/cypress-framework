@@ -31,7 +31,7 @@ describe('Check if confirmation email was successfully delivered', function () {
             homePage.fillLastNameInput(this.user.lastName);
             homePage.clickCheckoutButton();
 
-            summaryPage.clickConfirmButton();
+            summaryPage.clickConfirmDetailsButton();
 
             checkoutPage.fillNameInput(this.user.creditCard.name);
             checkoutPage.fillZipCodeInput(this.user.creditCard.zipCode);
@@ -40,7 +40,6 @@ describe('Check if confirmation email was successfully delivered', function () {
             checkoutPage.fillSecurityCodeInput(this.user.creditCard.securityCode);
             checkoutPage.clickSubmitButton();
 
-            purchaseCompletePage.clickDoneButton();
             purchaseCompletePage.checkIfEmailWasDelivered();
         })
     })
@@ -60,7 +59,7 @@ describe('Check if confirmation email was successfully delivered', function () {
             homePage.fillMessageForRecipientInput(this.user.message);
             homePage.clickCheckoutButton();
 
-            summaryPage.clickConfirmButton();
+            summaryPage.clickConfirmDetailsButton();
 
             checkoutPage.fillNameInput(this.user.creditCard.name);
             checkoutPage.fillZipCodeInput(this.user.creditCard.zipCode);

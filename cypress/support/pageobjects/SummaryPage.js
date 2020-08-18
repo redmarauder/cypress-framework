@@ -26,7 +26,7 @@ class SummaryPage {
             .then(value => expect(value).to.equal(email));
     }
 
-    checkInputValues(amount, email) {
+    checkOrderDetails(amount, email) {
         this.checkValueOfGiftCard(amount);
         this.checkSendGiftCardToValue(email);
         this.checkSendReceiptToValue(email);

@@ -61,7 +61,7 @@ class HomePage {
             .then(value => expect(value).to.equal(lastName));
     }
 
-    checkInputValues(amount, email, firstName, lastName) {
+    checkOrderDetails(amount, email, firstName, lastName) {
         this.checkTotalCostValue(amount);
         this.checkEmailAddressValue(email);
         this.checkFirstNameValue(firstName);
