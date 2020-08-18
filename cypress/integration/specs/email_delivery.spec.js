@@ -6,7 +6,7 @@ import SummaryPage from '../../support/pageobjects/SummaryPage';
 import CheckoutPage from '../../support/pageobjects/CheckoutPage';
 import PurchaseCompletePage from '../../support/pageobjects/PurchaseCompletePage';
 
-describe('Check if confirmation email was successfully delivered', function () {
+describe('As a customer I want to check if confirmation email was successfully delivered', function () {
     const homePage = new HomePage();
     const summaryPage = new SummaryPage();
     const checkoutPage = new CheckoutPage();
@@ -21,7 +21,7 @@ describe('Check if confirmation email was successfully delivered', function () {
     var values = [50, 100, 150, 200];
     values.forEach((value) => {
 
-        it(`Purchase gift card and verify confirmation email by 'Send to me' with value of ${value}`, function () {
+        it(`When I purchase a gift card and 'Send to me' with value of ${value}, a confirmation email should be delivered`, function () {
 
             cy.visit(Cypress.env('url'));
 
@@ -46,7 +46,7 @@ describe('Check if confirmation email was successfully delivered', function () {
 
     values.forEach((value) => {
 
-        it(`Purchase gift card and verify confirmation email by 'Send to someone else' with value of ${value}`, function () {
+        it(`When I purchase a gift card and 'Send to someone else' with value of ${value}, a confirmation email should be delivered`, function () {
 
             cy.visit(Cypress.env('url'));
 
