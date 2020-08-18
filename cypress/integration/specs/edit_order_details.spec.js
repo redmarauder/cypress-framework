@@ -4,77 +4,61 @@
 import HomePage from '../../support/pageobjects/HomePage';
 import SummaryPage from '../../support/pageobjects/SummaryPage';
 import CheckoutPage from '../../support/pageobjects/CheckoutPage';
-import PurchaseCompletePage from '../../support/pageobjects/PurchaseCompletePage';
 
-describe('Check if confirmation email was successfully delivered', function () {
+describe('As a customer I want to edit the details of my order', function () {
 
     before(function () {
         cy.fixture('user').then(function (data) {
             this.data = data;
         })
+        cy.fixture('value').then(function (value) {
+            this.value = value;
+        })
     })
 
-    it(`Purchase gift card and verify confirmation email by 'Send to me'`, function () {
+    it(`the order details should be correct after editing the details from the summary page`, function () {
         const homePage = new HomePage();
         const summaryPage = new SummaryPage();
-        const checkoutPage = new CheckoutPage();
-        const purchaseCompletePage = new PurchaseCompletePage();
 
         cy.visit(Cypress.env('url'));
 
-        homePage.selectGiftCardAmount(100);
+        homePage.selectGiftCardAmount(this.value.fifty);
         homePage.fillEmailInput(this.data.email);
         homePage.fillFirstNameInput(this.data.firstName);
         homePage.fillLastNameInput(this.data.lastName);
         homePage.clickCheckoutButton();
 
+        summaryPage.checkInputValues(this.value.fifty, this.data.email);
         summaryPage.clickEditButton();
+
+        homePage.checkInputValues(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
         homePage.clickCheckoutButton();
-        summaryPage.clickConfirmButton();
 
-        checkoutPage.clickEditButton();
-        homePage.clickCheckoutButton();
-        summaryPage.clickConfirmButton();
-
-        checkoutPage.fillNameInput(this.data.creditCard.name);
-        checkoutPage.fillZipCodeInput(this.data.creditCard.zipCode);
-        checkoutPage.fillCardNumberInput(this.data.creditCard.cardNumber);
-        checkoutPage.fillExpirationInput(this.data.creditCard.expirationDate);
-        checkoutPage.fillSecurityCodeInput(this.data.creditCard.securityCode);
-        checkoutPage.clickSubmitButton();
-
-        purchaseCompletePage.checkIfEmailWasDelivered();
+        summaryPage.checkInputValues(this.value.fifty, this.data.email);
+        summaryPage.clickConfirmDetailsButton();
+        summaryPage.checkInputValues(this.value.fifty, this.data.email);
     })
 
-    it(`Purchase gift card and verify confirmation email by 'Send to someone else'`, function () {
+    it(`the order details should be correct after editing the details from the checkout page`, function () {
         const homePage = new HomePage();
         const summaryPage = new SummaryPage();
         const checkoutPage = new CheckoutPage();
-        const purchaseCompletePage = new PurchaseCompletePage();
 
         cy.visit(Cypress.env('url'));
 
-        homePage.selectGiftCardAmount(100);
+        homePage.selectGiftCardAmount(this.value.fifty);
         homePage.fillEmailInput(this.data.email);
         homePage.fillFirstNameInput(this.data.firstName);
         homePage.fillLastNameInput(this.data.lastName);
         homePage.clickCheckoutButton();
 
-        summaryPage.clickEditButton();
-        homePage.clickCheckoutButton();
-        summaryPage.clickConfirmButton();
+        summaryPage.clickConfirmDetailsButton();
 
         checkoutPage.clickEditButton();
+
+        homePage.checkInputValues(this.value.fifty, this.data.email, this.data.firstName, this.data.lastName);
         homePage.clickCheckoutButton();
-        summaryPage.clickConfirmButton();
 
-        checkoutPage.fillNameInput(this.data.creditCard.name);
-        checkoutPage.fillZipCodeInput(this.data.creditCard.zipCode);
-        checkoutPage.fillCardNumberInput(this.data.creditCard.cardNumber);
-        checkoutPage.fillExpirationInput(this.data.creditCard.expirationDate);
-        checkoutPage.fillSecurityCodeInput(this.data.creditCard.securityCode);
-        checkoutPage.clickSubmitButton();
-
-        purchaseCompletePage.checkIfEmailWasDelivered();
+        summaryPage.checkInputValues(this.value.fifty, this.data.email);
     })
 })
