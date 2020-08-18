@@ -12,14 +12,13 @@ describe('Check if confirmation email was successfully delivered', function () {
     const checkoutPage = new CheckoutPage();
     const purchaseCompletePage = new PurchaseCompletePage();
 
-    var values = [50, 100, 150, 200];
-
     beforeEach(function () {
         cy.fixture('user').then(function (user) {
             this.user = user;
         })
     })
 
+    var values = [50, 100, 150, 200];
     values.forEach((value) => {
 
         it(`Purchase gift card and verify confirmation email by 'Send to me' with value of ${value}`, function () {
@@ -41,6 +40,7 @@ describe('Check if confirmation email was successfully delivered', function () {
             checkoutPage.fillSecurityCodeInput(this.user.creditCard.securityCode);
             checkoutPage.clickSubmitButton();
 
+            purchaseCompletePage.clickDoneButton();
             purchaseCompletePage.checkIfEmailWasDelivered();
         })
     })
