@@ -12,11 +12,10 @@
 
 1. Open Cypress and from here can control execution of the tests -> npm run cypress:open
 2. Run all tests from the terminal -> npm run cypress:run:all
-3. Run specific tests from the terminal - npm run cypress:run:test followed by location/s of test/s 
-   For example - npm run cypress:run:test cypress/integration/specs/email_delivery.spec.js
-4. To change what browser the tests run against
-   Append --browser [browserName] to the above commands
-   For example - npm run cypress:run:all --browser edge
+3. Run specific tests from the terminal -> npm run cypress:run:test -> followed by location/s of test/s.
+   For example -> npm run cypress:run:test cypress/integration/specs/email_delivery.spec.js
+4. To change what browser the tests run against, append -> --browser [browserName] -> to the above commands.
+   For example -> npm run cypress:run:all --browser edge
    
 # For more detailed info on running tests please see - 
 https://docs.cypress.io/guides/getting-started/installing-cypress.html#Opening-Cypress
