@@ -13,7 +13,7 @@ class CheckoutPage {
     }
 
     clickEditButton() {
-        cy.get('button[data-action="click->confirm#editAction"]').click();
+        cy.get('[data-action="click->confirm#editAction"]').click();
     }
 
     clickSubmitButton() {

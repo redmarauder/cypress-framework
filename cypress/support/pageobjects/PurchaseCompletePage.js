@@ -1,7 +1,7 @@
 class PurchaseCompletePage {
 
     clickDoneButton() {
-        cy.get('button[data-action="application#doneAction"]', { timeout: 10000 }).click();
+        cy.get('[data-action="application#doneAction"]', { timeout: 10000 }).click();
     }
 
     checkIfEmailWasDelivered() {
